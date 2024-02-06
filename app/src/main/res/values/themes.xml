@@ -3,13 +3,14 @@
     <style name="Base.Theme.Movies" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-
-        <item name="colorPrimary">@color/black</item>
+        <item name="colorPrimary">@color/white</item>
         <!-- Цвет панели действий -->
         <item name="colorPrimaryDark">@color/black</item>
         <!-- Цвет акцента (например, для кнопок) -->
         <item name="colorAccent">@color/black</item>
+        <item name="android:background">@color/white</item>
         <!-- Дополнительные настройки темы, если нужно -->
+        <item name="android:textColor">#151515</item>
     </style>
 
     <style name="Theme.Movies" parent="Base.Theme.Movies" />
