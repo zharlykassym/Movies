@@ -70,12 +70,40 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_mono_light"
-            android:padding="24dp"
+            android:paddingTop="24dp"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp"
+            android:paddingBottom="8dp"
             android:textSize="16sp"
             android:typeface="monospace"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textViewYear"
             tools:text="@string/movie_description_example" />
+
+        <TextView
+            android:id="@+id/textViewTrailer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/textViewDescription"
+            android:text="@string/trailers"
+            android:paddingStart="24dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/founder_medium"
+            android:textSize="22sp"
+            tools:ignore="RtlSymmetry" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewTrailers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="16dp"
+            android:clipToPadding="false"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTrailer"
+            tools:layout_editor_absoluteX="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/trailer_item"
+            tools:ignore="RtlSymmetry" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

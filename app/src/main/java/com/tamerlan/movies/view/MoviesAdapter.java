@@ -111,8 +111,6 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
             imageViewPoster = itemView.findViewById(R.id.imageViewPoster);
             textViewRating = itemView.findViewById(R.id.textViewRating);
             textViewTitle = itemView.findViewById(R.id.textViewTitle);
-
-
         }
     }
 }

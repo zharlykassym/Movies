@@ -17,6 +17,8 @@
         android:paddingTop="42dp"
         android:paddingEnd="4dp"
         android:paddingBottom="16dp"
+        tools:listitem="@layout/movie_item"
+
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
