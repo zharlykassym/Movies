@@ -1,5 +1,6 @@
 # API Kinopoisk Project
-![kinopoisk_movies-min](https://github.com/zharlykassym/Movies/assets/80376028/bc06c5a0-4b9a-4b47-a3de-63c09e7b5a0c)
+
+https://github.com/zharlykassym/Movies/assets/80376028/9edcc34a-1367-4341-93d6-099457f7074b
 
 Kinopoisk Movie это функциональное user-friendly мобильное приложение, взаимодействующее с интернетом и представляющее собой
 каталог фильмов с актуальной информацией о каждом фильме.
