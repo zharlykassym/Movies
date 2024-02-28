@@ -39,7 +39,7 @@ public class MovieDetailViewModel extends AndroidViewModel {
     }
 
     public void loadReviews(int id){
-        Disposable disposable = ApiFactory.apiService.loadReview(id, "Негативный")
+        Disposable disposable = ApiFactory.apiService.loadReview(id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .map(new Function<ReviewResponse, List<Review>>() {

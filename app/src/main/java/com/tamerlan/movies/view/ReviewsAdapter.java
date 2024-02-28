@@ -51,7 +51,7 @@ public class ReviewsAdapter extends RecyclerView.Adapter<ReviewsAdapter.ReviewsV
         holder.textViewTitle.setText(review.getTitle());
         holder.textViewReview.setText(review.getReview());
         String type = review.getType();
-        int backgroundId =  R.drawable.review_red ;
+        int backgroundId =  R.drawable.review_gray ;
         switch (type) {
             case TYPE_POSITIVE:
                 backgroundId = R.drawable.review_green;
