@@ -9,6 +9,8 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.tamerlan.movies.ApiFactory;
+import com.tamerlan.movies.Review;
+import com.tamerlan.movies.ReviewResponse;
 import com.tamerlan.movies.Trailer;
 import com.tamerlan.movies.VideosResponse;
 
@@ -26,9 +28,41 @@ public class MovieDetailViewModel extends AndroidViewModel {
 
     private CompositeDisposable compositeDisposable = new CompositeDisposable();
     private MutableLiveData<List<Trailer>> trailers = new MutableLiveData<>();
+    private MutableLiveData<List<Review>> reviews = new MutableLiveData<>();
+
+    public LiveData<List<Review>> getReviews() {
+        return reviews;
+    }
 
     public LiveData<List<Trailer>> getTrailers() {
         return trailers;
+    }
+
+    public void loadReviews(int id){
+        Disposable disposable = ApiFactory.apiService.loadReview(id, "Негативный")
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .map(new Function<ReviewResponse, List<Review>>() {
+                    @Override
+                    public List<Review> apply(ReviewResponse reviewResponse) throws Throwable {
+                        return reviewResponse.getReviews();
+                    }
+                })
+                .subscribe(new Consumer<List<Review>>() {
+                    @Override
+                    public void accept(List<Review> reviewList) throws Throwable {
+                        reviews.setValue(reviewList);
+                        Log.d(TAG, "loadReviews works");
+//                        Log.d(TAG, reviewResponse.toString());
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Throwable {
+                        throwable.toString();
+                        Log.d(TAG, "Error loadReviews");
+                    }
+                });
+        compositeDisposable.add(disposable);
     }
 
     public void loadTrailers(int id){

@@ -3,10 +3,13 @@ package com.tamerlan.movies.view;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
@@ -16,6 +19,7 @@ import com.bumptech.glide.Glide;
 import com.tamerlan.movies.ApiFactory;
 import com.tamerlan.movies.Movie;
 import com.tamerlan.movies.R;
+import com.tamerlan.movies.Review;
 import com.tamerlan.movies.Trailer;
 import com.tamerlan.movies.VideosResponse;
 import com.tamerlan.movies.viewModel.MovieDetailViewModel;
@@ -35,7 +39,9 @@ public class MovieDetailActivity extends AppCompatActivity {
     private TextView textViewYear;
     private TextView textViewDescription;
     private RecyclerView recyclerViewTrailers;
+    private RecyclerView recyclerViewReviews;
     private TrailersAdapter trailersAdapter;
+    private ReviewsAdapter reviewsAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +51,9 @@ public class MovieDetailActivity extends AppCompatActivity {
         initView();
         trailersAdapter = new TrailersAdapter();
         recyclerViewTrailers.setAdapter(trailersAdapter);
+
+        reviewsAdapter = new ReviewsAdapter();
+        recyclerViewReviews.setAdapter(reviewsAdapter);
 
         Movie movie = (Movie) getIntent().getSerializableExtra(EXTRA_MOVIE);
         Glide.with(this)
@@ -62,6 +71,25 @@ public class MovieDetailActivity extends AppCompatActivity {
                 trailersAdapter.setTrailers(trailers);
             }
         });
+        trailersAdapter.setOnTrailerClickListener(new TrailersAdapter.OnTrailerClickListener() {
+            @Override
+            public void onTrailerClick(Trailer trailer) {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(trailer.getUrl()));
+                startActivity(intent);
+            }
+        });
+
+        viewModel.loadReviews(movie.getId());
+        viewModel.getReviews().observe(this, new Observer<List<Review>>() {
+            @Override
+            public void onChanged(List<Review> reviews) {
+                reviewsAdapter.setReviews(reviews);
+                Log.d(TAG, "getReviews.observe works");
+            }
+        });
+
+
 
     }
 
@@ -77,5 +105,6 @@ public class MovieDetailActivity extends AppCompatActivity {
         textViewYear = findViewById(R.id.textViewYear);
         textViewDescription = findViewById(R.id.textViewDescription);
         recyclerViewTrailers = findViewById(R.id.recyclerViewTrailers);
+        recyclerViewReviews = findViewById(R.id.recyclerViewReviews);
     }
 }

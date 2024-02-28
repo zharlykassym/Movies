@@ -100,10 +100,38 @@
             android:clipToPadding="false"
             app:layout_constraintTop_toBottomOf="@+id/textViewTrailer"
             tools:layout_editor_absoluteX="30dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/trailer_item"
             tools:ignore="RtlSymmetry" />
+
+        <TextView
+            android:id="@+id/textViewReviews"
+            android:layout_width="match_parent"
+            android:layout_marginTop="8dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerViewTrailers"
+            android:text="@string/reviews"
+            android:paddingStart="24dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/founder_medium"
+            android:textSize="22sp"
+            tools:ignore="RtlSymmetry" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewReviews"
+            android:layout_width="match_parent"
+            android:layout_height="256dp"
+            android:orientation="horizontal"
+            android:paddingStart="16dp"
+            android:clipToPadding="false"
+            app:layout_constraintTop_toBottomOf="@+id/textViewReviews"
+            app:layout_constraintBottom_toBottomOf="parent"
+
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/review_item"
+         />
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

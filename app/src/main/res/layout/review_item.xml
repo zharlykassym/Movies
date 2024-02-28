@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="324dp"
+    android:layout_height="wrap_content"
+    android:background="#1AAAAAAA"
+    android:orientation="vertical"
+    android:layout_margin="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:background="@android:color/transparent"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageViewType"
+            android:layout_width="5dp"
+            android:layout_height="match_parent"
+            tools:src="@drawable/review_green" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewAuthor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                tools:text="Name Surname" />
+
+            <TextView
+                android:id="@+id/textViewDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:textSize="12sp"
+                tools:text="18 декабря 2017" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:ellipsize="end"
+        android:fontFamily="@font/founder_medium"
+        android:maxLines="1"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        tools:text="Tittle" />
+
+    <TextView
+        android:id="@+id/textViewReview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:background="@android:color/transparent"
+        android:ellipsize="end"
+        android:fontFamily="@font/founder_medium"
+        android:maxLines="4"
+        android:paddingStart="16dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="16dp"
+        android:textSize="14sp"
+        tools:text="@string/movie_description_example" />
+
+</LinearLayout>
