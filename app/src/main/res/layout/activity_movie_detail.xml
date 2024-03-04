@@ -108,15 +108,16 @@
         <TextView
             android:id="@+id/textViewReviews"
             android:layout_width="match_parent"
-            android:layout_marginTop="8dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/recyclerViewTrailers"
-            android:text="@string/reviews"
-            android:paddingStart="24dp"
-            android:textStyle="bold"
+            android:layout_marginTop="8dp"
             android:fontFamily="@font/founder_medium"
+            android:paddingStart="24dp"
+            android:text="@string/reviews"
             android:textSize="22sp"
-            tools:ignore="RtlSymmetry" />
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerViewTrailers"
+            tools:ignore="RtlSymmetry"
+            tools:layout_editor_absoluteX="0dp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewReviews"

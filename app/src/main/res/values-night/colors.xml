@@ -3,5 +3,5 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="activeBtn">#FF5722</color>
-    <color name="passiveBtn">#5E5E5E</color>
+    <color name="passiveBtn">#C3C3C3</color>
 </resources>

@@ -7,7 +7,6 @@
     android:orientation="vertical"
     tools:context=".view.MainActivity">
 
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewMovies"
         android:layout_width="match_parent"
@@ -17,9 +16,9 @@
         android:paddingTop="42dp"
         android:paddingEnd="4dp"
         android:paddingBottom="16dp"
-        tools:listitem="@layout/movie_item"
-
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:listitem="@layout/movie_item" />
 
     <TextView
         android:id="@+id/textViewAppName"
@@ -43,12 +42,141 @@
         android:id="@+id/progressBarLoading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
         android:background="@android:color/transparent"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />
+
+
+    <eightbitlab.com.blurview.BlurView
+        android:id="@+id/blurViewBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#99FFFFFF"
+        android:backgroundTintMode="multiply"
+        app:layout_constraintBottom_toBottomOf="@+id/recyclerViewMovies">
+
+    <LinearLayout
+        android:id="@+id/linearLayoutBar"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="@android:color/transparent"
+        android:backgroundTintMode="multiply"
+        android:orientation="horizontal"
+        >
+
+
+        <ImageButton
+            android:id="@+id/imageButton1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:background="@android:color/transparent"
+            android:scaleX="2"
+            android:scaleY="2"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/house_door" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/transparent">
+
+            <ImageButton
+                android:id="@+id/imageButtonHouseDoor"
+                android:layout_width="wrap_content"
+                android:layout_height="43dp"
+
+                android:adjustViewBounds="true"
+                android:background="@android:color/transparent"
+                android:scaleX="2"
+                android:scaleY="2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/house_door_fill" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/activeBtn"
+                android:text="@string/main"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/roboto_bold"
+                android:background="@android:color/transparent"
+                android:textAlignment="center"
+                app:layout_constraintBottom_toBottomOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <ImageButton
+            android:id="@+id/imageButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:background="@android:color/transparent"
+            android:scaleX="2"
+            android:scaleY="2"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/house_door" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/transparent">
+
+            <ImageButton
+                android:id="@+id/imageButtonHouseDoorFill"
+                android:layout_width="wrap_content"
+                android:layout_height="43dp"
+
+                android:adjustViewBounds="true"
+                android:background="@android:color/transparent"
+                android:scaleX="2"
+                android:scaleY="2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/bookmarks" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/passiveBtn"
+                android:text="@string/favourites"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/roboto_bold"
+                android:background="@android:color/transparent"
+                android:textAlignment="center"
+                app:layout_constraintBottom_toBottomOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageButton
+            android:id="@+id/imageButton5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:background="@android:color/transparent"
+            android:scaleX="2"
+            android:scaleY="2"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/house_door_fill" />
+
+    </LinearLayout>
+
+
+
+    </eightbitlab.com.blurview.BlurView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

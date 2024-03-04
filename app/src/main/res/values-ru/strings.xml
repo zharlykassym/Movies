@@ -5,4 +5,6 @@
     <string name="kinopoisk">Кинопоиск</string>
     <string name="trailers">Трейлеры</string>
     <string name="reviews">Рецензии</string>
+    <string name="main">Главное</string>
+    <string name="favourites">Избранное</string>
 </resources>

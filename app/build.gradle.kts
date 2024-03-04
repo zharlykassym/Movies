@@ -29,7 +29,11 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
+
 }
+
+
 
 dependencies {
 
@@ -54,4 +58,13 @@ dependencies {
     implementation("androidx.room:room-runtime:$room_version")
     annotationProcessor("androidx.room:room-compiler:$room_version")
     implementation("androidx.room:room-rxjava3:$room_version")
+
+
+    implementation("com.github.Dimezis:BlurView:version-2.0.3")
+
+
+
 }
+
+
+
