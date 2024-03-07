@@ -2,6 +2,11 @@
 
 https://github.com/zharlykassym/Movies/assets/80376028/8f5e0fca-efd1-43be-95b9-a7fd919ec3db
 
+
+https://github.com/zharlykassym/Movies/assets/80376028/fb97de50-533f-4e56-81ea-8f9c9c032cf8
+
+
+
 Kinopoisk Movie это функциональное user-friendly мобильное приложение, взаимодействующее с интернетом и представляющее собой
 каталог фильмов с актуальной информацией о каждом фильме.
 Приложение представляет наличие следующих экранов:
