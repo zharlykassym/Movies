@@ -38,72 +38,116 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-        <TextView
-            android:id="@+id/textViewTittle"
+        <LinearLayout
+            android:id="@+id/linearLayoutInteractiveField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/black"
-            android:fontFamily="@font/sclate"
-            android:textAlignment="center"
-            android:textAllCaps="true"
-            android:textColor="@color/white"
-            android:textSize="36sp"
-            android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@id/cardViewPoster"
-            tools:text="1+1 (Неприкасаемые)" />
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/cardViewPoster">
 
-        <TextView
-            android:id="@+id/textViewYear"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:background="@color/black"
-            android:paddingBottom="16dp"
-            android:textColor="@color/white"
-            android:textSize="14sp"
-            app:layout_constraintTop_toBottomOf="@id/textViewTittle"
-            tools:text="1995" />
+            <TextView
+                android:id="@+id/textViewTittle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black"
+                android:fontFamily="@font/sclate"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="36sp"
+                android:textStyle="bold"
+
+                tools:text="1+1 (Неприкасаемые)" />
+
+            <TextView
+                android:id="@+id/textViewYear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black"
+                android:textAlignment="center"
+
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:layout_constraintTop_toBottomOf="@id/textViewTittle"
+                tools:text="1995" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black"
+                android:paddingTop="20dp">
+                    <ImageButton
+                        android:id="@+id/imageButtonToFavouriteOff"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:adjustViewBounds="true"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitCenter"
+                        android:scaleX="0.6"
+                        android:scaleY="0.6"
+                        tools:srcCompat="@drawable/bookmark" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="42dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@android:color/transparent"
+                    android:text="@string/favourites"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
 
         <TextView
             android:id="@+id/textViewDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_mono_light"
-            android:paddingTop="24dp"
             android:paddingLeft="24dp"
+            android:paddingTop="24dp"
             android:paddingRight="24dp"
             android:paddingBottom="8dp"
             android:textSize="16sp"
             android:typeface="monospace"
-            app:layout_constraintTop_toBottomOf="@id/textViewYear"
+            app:layout_constraintTop_toBottomOf="@id/linearLayoutInteractiveField"
             tools:text="@string/movie_description_example" />
 
         <TextView
             android:id="@+id/textViewTrailer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/textViewDescription"
-            android:text="@string/trailers"
-            android:paddingStart="24dp"
-            android:textStyle="bold"
             android:fontFamily="@font/founder_medium"
+            android:paddingStart="24dp"
+            android:text="@string/trailers"
             android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/textViewDescription"
             tools:ignore="RtlSymmetry" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewTrailers"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:clipToPadding="false"
             android:orientation="horizontal"
             android:paddingStart="16dp"
-            android:clipToPadding="false"
-            app:layout_constraintTop_toBottomOf="@+id/textViewTrailer"
-            tools:layout_editor_absoluteX="30dp"
-
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/trailer_item"
-            tools:ignore="RtlSymmetry" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewTrailer"
+
+            tools:ignore="RtlSymmetry"
+            tools:layout_editor_absoluteX="30dp"
+            tools:listitem="@layout/trailer_item" />
 
         <TextView
             android:id="@+id/textViewReviews"
@@ -123,16 +167,14 @@
             android:id="@+id/recyclerViewReviews"
             android:layout_width="match_parent"
             android:layout_height="256dp"
+            android:clipToPadding="false"
             android:orientation="horizontal"
             android:paddingStart="16dp"
-            android:clipToPadding="false"
-            app:layout_constraintTop_toBottomOf="@+id/textViewReviews"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
 
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/review_item"
-         />
-
+            app:layout_constraintTop_toBottomOf="@+id/textViewReviews"
+            tools:listitem="@layout/review_item" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

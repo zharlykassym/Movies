@@ -5,26 +5,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
-import android.graphics.RenderEffect;
-import android.graphics.Shader;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
-import android.widget.SeekBar;
 
-import com.tamerlan.movies.ApiFactory;
 import com.tamerlan.movies.Movie;
-import com.tamerlan.movies.MovieResponse;
 import com.tamerlan.movies.R;
 import com.tamerlan.movies.viewModel.MainViewModel;
 
@@ -33,9 +26,6 @@ import java.util.List;
 
 import eightbitlab.com.blurview.BlurView;
 import eightbitlab.com.blurview.RenderScriptBlur;
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
-import io.reactivex.rxjava3.functions.Consumer;
-import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -46,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private MoviesAdapter moviesAdapter;
     private ProgressBar progressBarLoading;
     private BlurView blurViewBar;
+    private ImageButton imageButtonFavourites;
 
 
     @RequiresApi(api = Build.VERSION_CODES.S)
@@ -90,10 +81,17 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        imageButtonFavourites.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = FavouriteMoviesActivity.newIntent(MainActivity.this);
+                startActivity(intent);
+            }
+        });
 
     }
 
-    private void blurBar() {
+    public void blurBar() {
         float radius = 22f;
 
         View decorView = getWindow().getDecorView();
@@ -111,10 +109,15 @@ public class MainActivity extends AppCompatActivity {
                 .setBlurRadius(radius);
     }
 
+    public static Intent newIntent(Context context){
+        return new Intent(context, MainActivity.class);
+    }
+
     private void initViews() {
         progressBarLoading = findViewById(R.id.progressBarLoading);
         recyclerViewMovies = findViewById(R.id.recyclerViewMovies);
         blurViewBar = (BlurView) findViewById(R.id.blurViewBar);
+        imageButtonFavourites = findViewById(R.id.imageButtonFavourites);
 
     }
 }
